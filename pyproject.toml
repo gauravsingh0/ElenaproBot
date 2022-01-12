@@ -1,4 +1,4 @@
-tool.poetry]
+[tool.poetry]
 name = "elena"
 version = "2.0.0"
 description = "Telegram group management bot"
