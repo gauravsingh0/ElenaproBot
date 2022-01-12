@@ -1,0 +1,22 @@
+﻿version: '3.7'
+
+services:
+  elena:
+    build:
+      context: .
+    depends_on:
+      - mongo
+    restart: on-failure
+    environment:
+      DB_URI: 'mongodb://elena:mypasswd@mongo'
+
+  mongo:
+    image: 'mongo:latest'
+    volumes:
+      - 'mongo_elena:/data/db'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: elena
+      MONGO_INITDB_ROOT_PASSWORD: mypasswd
+
+volumes:
+  mongo_elena:
